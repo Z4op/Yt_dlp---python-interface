@@ -1,0 +1,85 @@
+body{
+    background-color: black;
+}
+
+#yt_btn, #downloaded {
+    width: 100%;
+    background-color: rgb(51, 51, 51);
+    border: 2px solid wheat;
+    border-radius: 10px 10px 0px 0px;
+}
+
+#downloaded {
+    background-color: black;
+    border-bottom: 0px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+#top_bar{
+    display: flex;
+    flex-direction: row;
+}
+
+#spazio_1, #spazio_2{
+    margin-top: 10px;
+}
+
+#space{
+    border-bottom: 2px solid wheat;
+    width: 10%;
+}
+
+#collector{
+    background-color: rgb(45,45,45);
+    margin-top: 10px;
+    border-radius: 10px;
+}
+#searchInput{
+    background-color: rgb(51, 51, 51);
+    border: 1px solid gray;
+    border-radius: 10px;
+    color: gray;
+    font-size: 24px;
+    margin: 10px;
+    height: 49px;
+    width: 98%;
+}
+#display_songs{
+    color:white;
+    margin-left: 10px;
+}
+#separatore{
+    height: 1px;
+    margin: 10px 10px 10px 10px;
+    background-color: white;
+}
+h4{
+    color: white;
+}
+td, tr, table, th {
+    color:white;
+    border-radius: 10px;
+}
+table{
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 98%;
+}
+audio{
+    width: 98%;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+a{
+    display: grid;
+    place-content: center;
+}
+td{
+    width: 33%;
+}
+/* #dwn_link{
+    background-color: rgb(84, 84, 83);
+} */
+audio{
+    border-radius: 10px;
+}

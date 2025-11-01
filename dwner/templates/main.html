@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Downloader</title>
+    <link rel="icon" href="{{ url_for('static', filename='copertina.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='s.css') }}">
+</head>
+<body>
+    <div id="split_pages">
+        <div id="top_bar">
+            <div id="space"></div>
+            <button id="yt_btn">
+                <img src="{{ url_for('static', filename='copertina.ico') }}" >
+            </button>
+            <div id="space"></div>
+            <button id="downloaded">
+                <img src="{{ url_for('static', filename='download.ico') }}" >
+            </button>
+            <div id="space"></div>
+        </div>
+        <div id="title"> 
+            <h1>Scarica Video</h1>
+        </div>
+        <div id="push_link">
+            <div class="spazio" id="spazio_1">
+                <input type="text" placeholder="Put your YouTube Link" id="url">
+            </div>
+            <div class="spazio" id="spazio_2">
+                <button id="btn_dwn">Download the link</button>
+            </div>
+            <div class="spazio" id="spazio_3">
+                <h6 id="stato">Ready</h6>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='b.js') }}"></script>
+</body>
+</html>

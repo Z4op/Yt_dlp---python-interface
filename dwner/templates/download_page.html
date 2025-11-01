@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>download</title>
+    <link rel="icon" href="{{ url_for('static', filename='download.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='s2.css') }}">
+</head>
+    <body>
+        <div id="split_pages">
+            <div id="top_bar">
+                <div id="space"></div>
+                <button id="yt_btn">
+                    <img src="{{ url_for('static', filename='copertina.ico') }}" >
+                </button>
+                <div id="space"></div>
+                <button id="downloaded">
+                    <img src="{{ url_for('static', filename='download.ico') }}" >
+                </button>
+                <div id="space"></div>
+            </div>
+            <div id="collector">
+               <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Search for playlist or song..." 
+                >
+
+                <table id="songsTable" border="1" cellspacing="0" cellpadding="8">
+                    <thead>
+                        <tr>
+                            <!--<th>Playlist</th>-->
+                            <th>Song</th>
+                            <th>Play</th>
+                            <th>Download</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for name, tracks in songs.items() %}
+                            <tr>
+                                <td colspan="4" style="font-weight: bold; background-color: cadetblue;">
+                                    {{ name }}
+                                    <a href="{{ url_for('download_playlist', playlist=name) }}" style="float: right;">
+                                        ⬇ Download All
+                                    </a>
+                                </td>
+                            </tr>
+                            {% for track in tracks %}
+                                <tr>
+                                    <!--<td></td>-->
+                                    <td>{{ track }}</td>
+                                    <td>
+                                        <audio controls>
+                                            <source src="{{ url_for('play_file', playlist=name, filename=track) }}" type="audio/mpeg">
+                                        </audio>
+                                    </td>
+                                    <td id="dwn_link">
+                                        <a href="{{ url_for('download_file', playlist=name, filename=track) }}"> Download ⬇</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </body>
+    <script type="module" src="{{ url_for('static', filename='b.js') }}"></script>
+    <script>
+        document.getElementById("searchInput").addEventListener("keyup", function() {
+            const filter = this.value.toLowerCase();
+            const rows = document.querySelectorAll("#songsTable tbody tr");
+
+            rows.forEach(row => {
+                const playlist = row.querySelector("td:first-child");
+                const song = row.querySelector("td:nth-child(2)");
+                const text = (playlist?.textContent + " " + song?.textContent).toLowerCase();
+
+                if (text.includes(filter)) {
+                    row.style.visibility = "";
+                    row.style.display = "";
+                } else {
+                    row.style.visibility = "collapse"; // keeps table layout
+                }
+
+            });
+        });
+    </script>
+</html>
